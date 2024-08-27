@@ -70,7 +70,7 @@ File.open(File.join(output_dir,File.basename(input_file)+".scg"), "w") do |file|
     temp = line.split(/\t/)
     query, sbjct = temp[0], temp[1]
     aln_len, sbjct_len = temp[3].to_i, temp[5].to_i 
-    if lookup_h[sbjct] && aln_len > (sbjct_len*0.5)
+    if lookup_h[sbjct] && aln_len.to_f > (sbjct_len.to_f * 0.5)
       file.puts "#{query.split[0]}\t#{lookup_h[sbjct]}"
     end
   end
